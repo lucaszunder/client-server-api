@@ -1,33 +1,20 @@
-# Server cotação de moedas com SQLite
+# README
+Este é um programa escrito em Go que busca a cotação do dólar em relação ao real brasileiro. O programa faz uma requisição HTTP para o servidor de moedas em http://localhost:8080/cotacao e extrai o valor da cotação em tempo real. Em seguida, o programa salva o valor da cotação em um arquivo de texto chamado cotacao.txt.
 
-Este é server API para cotação de moedas com armazenamento em banco de dados SQLite.
+# Pré-requisitos
+Este programa requer que o Go esteja instalado em sua máquina. Você pode baixar a versão mais recente do Go em https://golang.org/dl/.
 
-## Instalação
+# Como executar
+1- Clone este repositório em sua máquina.
 
-Para executar esse exemplo, é necessário ter o SQLite instalado em sua máquina. Caso não tenha, você pode fazer o download através do [site oficial](https://www.sqlite.org/download.html) ou através do gerenciador de pacotes da sua distribuição.
+2- Abra o terminal e navegue até o diretório do repositório clonado.
 
-### Instalando SQLite no Ubuntu
+3- Execute o seguinte comando para compilar o programa:
 
-Para instalar o SQLite no Ubuntu, você pode executar o seguinte comando:
+    go build
 
-    sudo apt-get install sqlite3
+4- Execute o programa com o seguinte comando:
 
-## Executando o projeto
-
-Para criar a tabela currencies no banco de dados SQLite, você pode executar o seguinte comando no terminal na raiz do projeto:
-
-
-    $ sqlite3 currency.db < migration.sql
-Este comando executará o arquivo migration.sql, que contém a query SQL para criar a tabela currencies.
-
-Antes de executar o código main.go, é necessário instalar as dependências. Para isso, execute o seguinte comando na raiz do projeto:
+    ./currency-converter
     
-    $ go mod tidy
-
-Em seguida, execute o seguinte comando para compilar e executar o código:
-
-    $ go run main.go
-
-O server estará disponível em:
-
-     GET - http://localhost:8080/cotacao
+5- não se esqueca de certificar que o /server/main.go esteja rodando.
