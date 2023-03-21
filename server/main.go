@@ -47,10 +47,7 @@ func main() {
 func getCurrencyHandler(w http.ResponseWriter, _ *http.Request) {
 	currency, err := getCurrencyRequester()
 	if err != nil {
-		println(err)
-		w.WriteHeader(http.StatusUnprocessableEntity)
-		w.Write([]byte(fmt.Sprintf("%v", err)))
-		return
+		panic(err)
 	}
 
 	db, err := sql.Open("sqlite3", databaseParams)
@@ -61,9 +58,7 @@ func getCurrencyHandler(w http.ResponseWriter, _ *http.Request) {
 
 	err = saveRecurrence(db, currency)
 	if err != nil {
-		w.WriteHeader(http.StatusUnprocessableEntity)
-		w.Write([]byte(fmt.Sprintf("%v", err)))
-		return
+		panic(err)
 	}
 
 	w.Header().Set("content-type", "application/json")
